@@ -5,21 +5,21 @@
 class ZenSync < Formula
   desc "Arc-like continuity for Zen Browser on macOS"
   homepage "https://github.com/gustavoguarda/zen-sync"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/gustavoguarda/zen-sync/releases/download/v0.1.0/zen-sync_v0.1.0_darwin_amd64.tar.gz"
-    sha256 "8c4dee39e1d605cca28c1909fe4da736361247d5ef4f07aad9381d02791da725"
+    url "https://github.com/gustavoguarda/zen-sync/releases/download/v0.1.1/zen-sync_v0.1.1_darwin_amd64.tar.gz"
+    sha256 "654220f988982380573bd3d859e0670c2992ff795ba69405e4ad16c2b1ac5758"
 
     define_method(:install) do
       bin.install "zen-sync"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/gustavoguarda/zen-sync/releases/download/v0.1.0/zen-sync_v0.1.0_darwin_arm64.tar.gz"
-    sha256 "d25b5d250f30694a3038441844a8631daca4856ba9394d841a97f1cac194ec81"
+    url "https://github.com/gustavoguarda/zen-sync/releases/download/v0.1.1/zen-sync_v0.1.1_darwin_arm64.tar.gz"
+    sha256 "61761395a065ed7c99115c99734171a71e95f3449292a956e5b8c1ac933cf1e7"
 
     define_method(:install) do
       bin.install "zen-sync"
