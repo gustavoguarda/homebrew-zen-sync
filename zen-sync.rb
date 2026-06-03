@@ -5,24 +5,31 @@
 class ZenSync < Formula
   desc "Arc-like continuity for Zen Browser on macOS"
   homepage "https://github.com/gustavoguarda/zen-sync"
-  version "0.1.1"
+  version "0.1.2"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/gustavoguarda/zen-sync/releases/download/v0.1.1/zen-sync_v0.1.1_darwin_amd64.tar.gz"
-    sha256 "654220f988982380573bd3d859e0670c2992ff795ba69405e4ad16c2b1ac5758"
+    url "https://github.com/gustavoguarda/zen-sync/releases/download/v0.1.2/zen-sync_v0.1.2_darwin_amd64.tar.gz"
+    sha256 "1fbea118cd8eddf319c12bcc4342e5c2cdfa857155368f895017646a45f50ac4"
 
     define_method(:install) do
       bin.install "zen-sync"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/gustavoguarda/zen-sync/releases/download/v0.1.1/zen-sync_v0.1.1_darwin_arm64.tar.gz"
-    sha256 "61761395a065ed7c99115c99734171a71e95f3449292a956e5b8c1ac933cf1e7"
+    url "https://github.com/gustavoguarda/zen-sync/releases/download/v0.1.2/zen-sync_v0.1.2_darwin_arm64.tar.gz"
+    sha256 "c3fc34e828d3d8727ecc3f30c9321db8cdfc33fd84623d3de14fa83f116ec0ce"
 
     define_method(:install) do
       bin.install "zen-sync"
+    end
+  end
+
+  def post_install
+    config_path = "#{ENV["HOME"]}/.config/zen-sync/config.toml"
+    if File.exist?(config_path)
+      system bin/"zen-sync", "ensure-installation"
     end
   end
 
